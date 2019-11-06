@@ -24,7 +24,8 @@ int s;
     EditText editTextName;
     EditText editTextPhone;
     EditText editTextEmail;
-
+    EditText editTextplac;
+    EditText editTextstreet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,8 @@ int s;
         editTextName = (EditText)findViewById(R.id.editName);
         editTextPhone = (EditText)findViewById(R.id.editPhone);
         editTextEmail = (EditText)findViewById(R.id.editEmail);
+        editTextplac = (EditText)findViewById(R.id.editplac);
+        editTextstreet = (EditText)findViewById(R.id.editstreet);
 
         bttnadd = (Button) findViewById(R.id.bttnAdd);
         bttnshow1 = (Button) findViewById(R.id.bttnShow1);
@@ -49,11 +52,13 @@ int s;
                 String getName = editTextName.getText().toString();
                 String getPhone = editTextPhone.getText().toString();
                 String getEmail = editTextEmail.getText().toString();
+                String getplac = editTextplac.getText().toString();
+                String getstreet = editTextstreet.getText().toString();
 
-                if (mydb.insertContact(getName, getPhone, getEmail)) {
+                if (mydb.insertContact(getName, getPhone, getEmail,getplac,getstreet)) {
                     Log.v("georgeLog", "Successfully inserted record to db");
                     Toast.makeText(getApplicationContext(),
-                            "Inserted:" + getName + ", " + getPhone + "," + getEmail, Toast.LENGTH_SHORT).show();
+                            "Inserted:" + getName + ", " + getPhone + "," + getEmail+ "," + getplac +"," + getstreet, Toast.LENGTH_SHORT).show();
                 } else
                     Toast.makeText(getApplicationContext(), "DID NOT insert to db :-(", Toast.LENGTH_SHORT).show();
             }

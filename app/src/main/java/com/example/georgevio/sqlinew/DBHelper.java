@@ -42,14 +42,14 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String phone, String email){//, String street,String place)
+    public boolean insertContact  (String name, String phone, String email ,String street , String plac){//, String street,String place)
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
-        //contentValues.put("street", street);
-        //contentValues.put("place", place);
+        contentValues.put("street", street);
+        contentValues.put("place", plac);
         db.insert("contacts", null, contentValues);
         return true;
     }
